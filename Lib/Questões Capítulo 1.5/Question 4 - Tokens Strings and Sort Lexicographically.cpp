@@ -1,8 +1,8 @@
-#include <iostream>   // Biblioteca para entrada e saída padrão.
-#include <sstream>    // Biblioteca para manipulação de strings como streams.
-#include <vector>     // Biblioteca para utilização de vetores (arrays dinâmicos).
-#include <algorithm>  // Biblioteca para funções úteis como sort() e transform().
-#include <cctype>     // Biblioteca para funções de manipulação de caracteres.
+#include <iostream>   
+#include <sstream>    
+#include <vector>   
+#include <algorithm>  
+#include <cctype>     
 
 using namespace std;
 

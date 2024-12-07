@@ -8,7 +8,7 @@ int main() {
     // Abre o arquivo
     ifstream file("C:\\Users\\berna\\Downloads\\teste.txt");
 
-    // Check if the file is opened correctly
+    // Verifica se o arquivo foi aberto corretamente
     if (!file.is_open()) {
         cout << "Error: Could not open file." << endl;
         return 1;
