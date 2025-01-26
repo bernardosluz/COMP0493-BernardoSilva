@@ -24,13 +24,20 @@ double biggestNumber(vector<double> &vetor) {
     return number;
 }
 
-void order(vector<double> &vetor) {
-    for (size_t i = 0; i < vetor.size() - 1; i++) {
-        for (size_t j = i + 1; j < vetor.size(); j++) {
-            if (vetor[i] > vetor[j]) {
-                swap(vetor[i], vetor[j]);
-            }
+void insertionSort(vector<double>& vetor) {
+    // Itera sobre os elementos a partir do segundo
+    for (size_t i = 1; i < vetor.size(); i++) {
+        double key = vetor[i]; // Elemento a ser inserido
+        size_t j = i;
+
+        // Desloca os elementos maiores para frente
+        while (j > 0 && vetor[j - 1] > key) {
+            vetor[j] = vetor[j - 1];
+            j--;
         }
+
+        // Insere o elemento na posição correta
+        vetor[j] = key;
     }
 }
 
@@ -45,7 +52,7 @@ void bucketSort(vector<double> &vetor) {
     // Calcular o intervalo
     double interval = (bigger - small) / numBuckets;
     if (interval == 0) {
-        order(vetor);
+        insertionSort(vetor);
         return;
     }
 
