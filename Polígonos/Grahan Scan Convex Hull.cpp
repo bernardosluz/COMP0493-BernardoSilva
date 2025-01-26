@@ -53,8 +53,7 @@ double distancePoint (Point point, Point pointX){
 // Orientação dos vetores
 int orientation(Point p0, Point p1, Point p2){
  
-    /*Fórmula: A X B = (p1.x - p1.x)* (p1.y - p0.y)
-    */
+    //Fórmula: A X B = (p1.x - p1.x)* (p1.y - p0.y)
     
     int value = (p1.coord_x - p0.coord_x)*(p2.coord_y - p1.coord_y)
                 - (p2.coord_x - p1.coord_x)*(p1.coord_y - p0.coord_y);
@@ -64,12 +63,6 @@ int orientation(Point p0, Point p1, Point p2){
     return (value > 0) ? -1 : 1; // Sentido anti-horário e Sentido horário, respectivamente
 }
 
-/*
-*   Função de comparação adaptada para o qsort
-*   se o elemento deve vir antes do outro então retornamos um valor negativo
-*   caso contrário retornamos um valor positivo
-*   e se forem equivalente retornamos 0
-*/
 int compare(const void *point1, const void* point2){
     Point *p1 = (Point *)point1;
     Point *p2 = (Point *)point2;
@@ -90,18 +83,11 @@ void convexHull(vector<Point> &points, int sizeVector){
    // Coloca o menor y na posição incial
    swap(points[0], points[min]);
 
-   // Ordena sizeVector - 1 em relação ao ponto inicial.
-   // Um ponto p1 vem antes de p2 se p2
-   // tem um angulo polar maior que p1 (em sentido anti-horário) do que p1
-   point0 = points[0];
+    // Ordena sizeVector - 1 em relação ao ponto inicial.
+    // Um ponto p1 vem antes de p2 se p2
+    // tem um angulo polar maior que p1 (em sentido anti-horário)
+    point0 = points[0];
 
-/*
-*    void qsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void *));
-*    void *base: Ponteiro para o primeiro elemento do array que será ordenado.
-*    size_t nitems: Número de elementos no array.
-*    size_t size: Tamanho, em bytes, de cada elemento no array.
-*    int (*compar)(const void *, const void *): Ponteiro para a função de comparação, que define a ordem dos elementos.
-*/
     qsort(&points[1], sizeVector-1, sizeof(Point), compare);
 
 
