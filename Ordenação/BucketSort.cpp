@@ -52,7 +52,7 @@ void bucketSort(vector<double> &vetor) {
     // Calcular o intervalo
     double interval = (bigger - small) / numBuckets;
     if (interval == 0) {
-        insertionSort(vetor);
+        //insertionSort(vetor);
         return;
     }
 
